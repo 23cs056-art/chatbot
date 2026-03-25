@@ -1,0 +1,350 @@
+Normalization is the process of organizing data to reduce redundancy and improve integrity.
+
+It removes duplication and prevents data anomalies.
+
+Redundancy means duplicate data stored unnecessarily.
+
+Data integrity ensures accuracy and consistency of data.
+
+An anomaly is an issue caused by improper database design.
+
+Insertion, Deletion, and Update anomalies.
+
+Difficulty adding new data due to missing fields.
+
+Loss of important data when deleting records.
+
+Inconsistency when updating duplicate data.
+
+To organize data efficiently and eliminate redundancy.
+
+Rules used to structure a database.
+
+1NF, 2NF, 3NF, BCNF.
+
+Combining tables to improve performance.
+
+When faster data retrieval is needed.
+
+Structure of a database.
+
+A table in a database.
+
+A column in a table.
+
+A row in a table.
+
+Set of valid values for an attribute.
+
+An attribute that uniquely identifies records.
+
+Unique identifier for each record.
+
+Possible keys that can become primary key.
+
+Set of attributes that uniquely identify rows.
+
+Key made of multiple attributes.
+
+Attribute linking two tables.
+
+Relationship between attributes.
+
+When attribute depends on itself.
+
+When attribute depends on another attribute.
+
+Attribute depends on whole key.
+
+Attribute depends on part of key.
+
+Dependency through another attribute.
+
+Attribute that determines another.
+
+Set of attributes determined by given attribute.
+
+Rules for functional dependency.
+
+Reflexive, Augmentation, Transitive.
+
+Simplified set of dependencies.
+
+All dependencies maintained after decomposition.
+
+No data loss after decomposition.
+
+Breaking table into smaller tables.
+
+To remove redundancy.
+
+Atomic values only.
+
+No repeating groups.
+
+No partial dependency.
+
+No transitive dependency.
+
+Stronger version of 3NF.
+
+Every determinant is candidate key.
+
+2NF removes partial, 3NF removes transitive dependency.
+
+BCNF stricter than 3NF.
+
+To remove repeating data.
+
+To remove partial dependency.
+
+To remove indirect dependency.
+
+To remove all anomalies.
+
+Step-by-step conversion into normal forms.
+
+Yes, for most systems.
+
+Not always.
+
+Removes multi-valued dependency.
+
+Removes join dependency.
+
+Attribute depends on multiple values.
+
+Complex dependency between tables.
+
+Degree of normalization.
+
+At required normal form.
+
+Performance vs structure.
+
+Less redundancy.
+
+More joins.
+
+Removing duplicate data.
+
+Same data everywhere.
+
+Follow normal forms.
+
+Dividing table.
+
+Using forms stepwise.
+
+Optimized database.
+
+Entity relationship model.
+
+Designing database.
+
+Structuring tables.
+
+Steps to create DB.
+
+Transaction processing system.
+
+Analytical processing system.
+
+Speed up queries.
+
+Optimizing DB speed.
+
+Efficient queries.
+
+Table-based model.
+
+Rules on data.
+
+Foreign key rule.
+
+Primary key rule.
+
+Valid data rule.
+
+Structure vs performance.
+
+Student-course database.
+
+DBMS tools.
+
+Efficient, consistent database.
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+
+Step 1: Identify transitive dependency (A → B → C). Step 2: Decompose into 3NF.
+R1(A,B), R2(B,C), R3(A,D).
+DATABASE NORMALIZATION – COMPLETE KNOWLEDGE
+
+Normalization is the process of organizing data in a database to reduce
+redundancy and improve data integrity. The main goal is to ensure that
+data is stored efficiently and consistently.
+
+Problems solved by normalization: - Redundancy: Duplicate data stored
+unnecessarily. - Insertion anomaly: Difficulty inserting new data. -
+Deletion anomaly: Loss of important data when deleting records. - Update
+anomaly: Inconsistent data due to multiple copies.
+
+Basic database terms: - Schema: Structure of a database. - Relation:
+Table in a database. - Attribute: Column in a table. - Tuple: Row in a
+table. - Domain: Set of valid values for an attribute.
+
+Keys in database: - Primary Key: Unique identifier for each record. -
+Candidate Key: Possible keys that can become primary key. - Super Key:
+Set of attributes that uniquely identify rows. - Composite Key: Key made
+of multiple attributes. - Foreign Key: Attribute that links two tables.
+
+Functional Dependency (FD): A relationship between attributes where one
+determines another.
+
+Types of dependencies: - Trivial dependency: Attribute depends on
+itself. - Non-trivial dependency: Attribute depends on another
+attribute. - Full dependency: Attribute depends on whole key. - Partial
+dependency: Attribute depends on part of key. - Transitive dependency: A
+→ B → C.
+
+Other concepts: - Determinant: Attribute that determines another
+attribute. - Closure: Set of attributes derived from a given attribute.
+
+Armstrong’s Axioms: - Reflexive - Augmentation - Transitive
+
+Normal Forms:
+
+1NF (First Normal Form): - Only atomic values. - No repeating groups.
+
+2NF (Second Normal Form): - No partial dependency.
+
+3NF (Third Normal Form): - No transitive dependency.
+
+BCNF (Boyce-Codd Normal Form): - Every determinant is a candidate key.
+
+Higher Normal Forms: - 4NF: Removes multi-valued dependency. - 5NF:
+Removes join dependency.
+
+Decomposition: Breaking a table into smaller tables to remove
+redundancy.
+
+Properties of decomposition: - Lossless Join: No data loss after
+decomposition. - Dependency Preservation: All dependencies are
+maintained.
+
+Other important concepts: - Minimal Cover: Simplified set of functional
+dependencies. - Table Splitting: Dividing a table into smaller tables. -
+Normalization Technique: Step-by-step application of normal forms. -
+Normalization Level: Degree of normalization achieved.
+
+Trade-offs: - Advantages: Reduced redundancy, improved consistency. -
+Disadvantages: Increased number of joins, possible performance impact.
+
+Denormalization: Combining tables to improve performance when fast data
+retrieval is needed.
+
+Database Design Concepts: - ER Model: Entity-relationship model. - Data
+Modeling: Designing the structure of a database. - Schema Design:
+Structuring database tables. - Database Design Process: Steps to create
+a database.
+
+Systems: - OLTP: Online Transaction Processing system. - OLAP: Online
+Analytical Processing system.
+
+Optimization Techniques: - Indexing: Improves query performance. - Query
+Optimization: Writing efficient queries. - Performance Tuning: Enhancing
+database performance.
+
+Integrity Constraints: - Entity Integrity: Primary key must be unique
+and not null. - Referential Integrity: Foreign key must match primary
+key. - Domain Integrity: Attribute values must be valid.
+
+Final Concept: Normalization focuses on structure and consistency.
+Denormalization focuses on performance.
+
+Real-life Example: Student-Course database system.
