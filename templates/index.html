@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NormaBot - Database Normalization AI Assistant</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+    }
+
+    .chat-container {
+        width: 100%;
+        max-width: 500px;
+        height: 650px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4), 0 0 40px rgba(118, 75, 162, 0.2);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .chat-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 25px 20px;
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .chat-header::before {
+        content: "🤖";
+        font-size: 28px;
+    }
+
+    #chatbox {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        background: linear-gradient(135deg, #f7f7ff 0%, #f0e9ff 100%);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #chatbox::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #chatbox::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    #chatbox::-webkit-scrollbar-thumb {
+        background: #667eea;
+        border-radius: 10px;
+    }
+
+    #chatbox::-webkit-scrollbar-thumb:hover {
+        background: #764ba2;
+    }
+
+    .message {
+        display: flex;
+        margin: 8px 0;
+        animation: slideIn 0.3s ease-out;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .message-content {
+        max-width: 75%;
+        padding: 12px 16px;
+        border-radius: 16px;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+
+    .user {
+        justify-content: flex-end;
+    }
+
+    .user .message-content {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-bottom-right-radius: 4px;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+
+    .bot {
+        justify-content: flex-start;
+    }
+
+    .bot .message-content {
+        background: white;
+        color: #333;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0;
+    }
+
+    .typing-indicator {
+        display: flex;
+        gap: 4px;
+        padding: 12px 16px;
+    }
+
+    .typing-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #667eea;
+        animation: typing 1.4s infinite;
+    }
+
+    .typing-dot:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+        0%, 60%, 100% {
+            opacity: 0.5;
+            transform: translateY(0);
+        }
+        30% {
+            opacity: 1;
+            transform: translateY(-10px);
+        }
+    }
+
+    .chat-input {
+        display: flex;
+        padding: 15px;
+        gap: 10px;
+        background: white;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .chat-input input {
+        flex: 1;
+        padding: 12px 16px;
+        border: 2px solid #e0e0e0;
+        border-radius: 25px;
+        outline: none;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .chat-input input:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .chat-input input::placeholder {
+        color: #999;
+    }
+
+    .chat-input button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        font-size: 14px;
+    }
+
+    .chat-input button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .chat-input button:active {
+        transform: translateY(0);
+    }
+
+    .empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: #999;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .empty-state-icon {
+        font-size: 48px;
+        opacity: 0.6;
+    }
+
+    .empty-state-text {
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    <div class="chat-header">
+        NormaBot Assistant
+    </div>
+
+    <div id="chatbox">
+        <div class="empty-state">
+            <div class="empty-state-icon">📚</div>
+            <div class="empty-state-text">Welcome! Ask me about Database Normalization</div>
+        </div>
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Ask questions about Database Normalization..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<script>
+async function sendMessage() {
+    const inputField = document.getElementById("userInput");
+    const userInput = inputField.value;
+
+    if (!userInput.trim()) return;
+
+    const chatbox = document.getElementById("chatbox");
+
+    // Clear empty state if exists
+    const emptyState = chatbox.querySelector('.empty-state');
+    if (emptyState) {
+        emptyState.remove();
+    }
+
+    // User message
+    const userMessageDiv = document.createElement('div');
+    userMessageDiv.className = 'message user';
+    userMessageDiv.innerHTML = `<div class="message-content">${escapeHtml(userInput)}</div>`;
+    chatbox.appendChild(userMessageDiv);
+
+    inputField.value = "";
+
+    // Show typing indicator
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message bot';
+    typingDiv.innerHTML = `<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+    chatbox.appendChild(typingDiv);
+
+    chatbox.scrollTop = chatbox.scrollHeight;
+
+    const response = await fetch("/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: userInput })
+    });
+
+    const data = await response.json();
+
+    // Remove typing indicator
+    typingDiv.remove();
+
+    // Bot message
+    function formatResponse(text) {
+        return text
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/\n/g, "<br>")
+            .replace(/\*\s*/g, "• ");
+    }
+
+    const botMessageDiv = document.createElement('div');
+    botMessageDiv.className = 'message bot';
+    botMessageDiv.innerHTML = `<div class="message-content">${formatResponse(data.response)}</div>`;
+    chatbox.appendChild(botMessageDiv);
+
+    // Auto scroll
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// Enter key support
+document.getElementById("userInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        sendMessage();
+    }
+});
+</script>
+
+</body>
+</html>
