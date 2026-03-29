@@ -10,7 +10,7 @@ import re
 
 app = Flask(__name__)
 
-GROQ_API_KEY = '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'
+GROQ_API_KEY = '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'
 client = Groq(api_key=GROQ_API_KEY)
 
 with open("knowledge.txt", 'r', encoding='utf-8') as file:
